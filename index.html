@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Second Calculator</title>
+</head>
+
+<body>
+    <main>
+        <h1>Second calculator</h1>
+    </main>
+
+    <p>Enter the data:</p>
+    <label for="hours">Enter the hours</label>
+    <input type="number" id="hours" required>
+    <br>
+    <label for="minutes">Enter the minutes</label>
+    <input type="number" id="minutes" required>
+    <br>
+    <label for="seconds">Enter the seconds</label>
+    <input type="number" id="seconds" required>
+
+    <button onclick="Calculator()">Calculator seconds</button>
+    <p id="reply"></p>
+
+    <script>
+
+        const HOURS = document.getElementById("hours");
+        const MINUTES = document.getElementById("minutes");
+        const SECONDS = document.getElementById("seconds");
+
+        function Calculator() {
+            let hours = Number(HOURS.value);
+            let minutes = Number(MINUTES.value);
+            let seconds = Number(SECONDS.value);
+            if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+                document.getElementById("reply").innerHTML("Please enter correct values");
+            } else {
+                let sumSeconds = hours * 3600 + minutes * 60 + seconds;
+                document.getElementById("reply").innerHTML = `This is the sum of the seconds ${sumSeconds.toFixed(2)}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
